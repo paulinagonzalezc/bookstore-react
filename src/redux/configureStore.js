@@ -1,6 +1,14 @@
- const rootReducer = Redux.combineReducers({
-    count: counterReducer,
-    auth: authReducer
-  });
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import booksReducer from './books/books';
+import categoriesReducer from './categories/categories';
 
-  const store = Redux.createStore(rootReducer);
+const rootReducer = combineReducers({
+  booksReducer,
+  categoriesReducer,
+});
+
+const store = configureStore({
+  rootReducer,
+});
+
+export default store;
