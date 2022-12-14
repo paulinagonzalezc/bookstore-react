@@ -1,8 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../redux/categories/categories';
 
 const Categories = () => {
+  const categories = useSelector((state) => state.categories);
   const dispatch = useDispatch();
   return (
     <div className="category-container">
@@ -13,6 +14,7 @@ const Categories = () => {
       >
         Check status
       </button>
+      <div>{categories}</div>
     </div>
   );
 };
