@@ -12,7 +12,8 @@ const Books = () => {
           <Book
             title={book.title}
             author={book.author}
-            key={book.id}
+            id={book.id}
+            key={book.title}
           />
         ))}
       </ul>

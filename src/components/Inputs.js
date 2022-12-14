@@ -14,14 +14,14 @@ const Inputs = () => {
       <form className="add-form">
         <input
           className="input title-input"
-          placeholder="Book title"
+          placeholder="Book"
           value={title}
           type="text"
           onInput={(e) => setTitle(e.target.value)}
         />
         <input
           className="input title-input"
-          placeholder="Author name"
+          placeholder="Author"
           value={author}
           type="text"
           onInput={(e) => setAuthor(e.target.value)}
@@ -31,7 +31,7 @@ const Inputs = () => {
           type="button"
           onClick={() => {
             dispatch(addBook({
-              title, author, id,
+              id, title, author,
             }));
             setAuthor('');
             setTitle('');
