@@ -1,13 +1,26 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { createBook } from '../redux/books/books';
 
 const Inputs = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const id = uuidv4();
+  const [category, setCategory] = useState('');
+
+  const postBook = () => {
+    dispatch(
+      createBook(
+        {
+          item_id: uuidv4(),
+          title,
+          author,
+          category,
+        },
+      ),
+    );
+  };
   return (
     <section>
       <h2 className="form-title">ADD NEW BOOK</h2>
@@ -26,15 +39,21 @@ const Inputs = () => {
           type="text"
           onInput={(e) => setAuthor(e.target.value)}
         />
+        <input
+          className="input title-input"
+          placeholder="Category"
+          value={category}
+          type="text"
+          onInput={(e) => setCategory(e.target.value)}
+        />
         <button
           className="primary-button-big"
           type="button"
           onClick={() => {
-            dispatch(addBook({
-              id, title, author,
-            }));
+            postBook();
             setAuthor('');
             setTitle('');
+            setCategory('');
           }}
         >
           ADD BOOK
