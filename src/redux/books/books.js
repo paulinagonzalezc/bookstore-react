@@ -1,30 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { v4 as uuidv4 } from 'uuid';
 
 // Actions
 const ADD = 'bookstore-react/booksReducer/ADD';
 const REMOVE = 'bookstore-react/booksReducer/REMOVE';
 const GET = 'bookstore-react/booksReducer/GET';
-const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/xKgONp1vYVZJzmgq5zMK/books';
 
-// Array with a few books
-// const listBooks = [
-//   {
-//     id: uuidv4(),
-//     title: 'The Hunger Games',
-//     author: 'Suzanne Collins',
-//   },
-//   {
-//     id: uuidv4(),
-//     title: 'Dune',
-//     author: 'Frank Herbert',
-//   },
-//   {
-//     id: uuidv4(),
-//     title: 'Capital in the Twenty-First Century',
-//     author: 'Suzanne Collins',
-//   },
-// ];
+// API URL
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/xKgONp1vYVZJzmgq5zMK/books';
 
 // Reducer
 export default function booksReducer(state = [], action) {
@@ -59,10 +41,10 @@ export const removeBook = (book) => ({
   book,
 });
 
+// API requests
 export const getBooks = createAsyncThunk(GET, async () => {
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   return data;
 });
 
