@@ -31,6 +31,7 @@ const Inputs = () => {
           value={title}
           type="text"
           onInput={(e) => setTitle(e.target.value)}
+          required
         />
         <input
           className="input title-input"
@@ -38,6 +39,7 @@ const Inputs = () => {
           value={author}
           type="text"
           onInput={(e) => setAuthor(e.target.value)}
+          required
         />
         <input
           className="input title-input"
@@ -45,10 +47,11 @@ const Inputs = () => {
           value={category}
           type="text"
           onInput={(e) => setCategory(e.target.value)}
+          required
         />
         <button
           className="primary-button-big"
-          type="button"
+          type="submit"
           onClick={() => {
             postBook();
             setAuthor('');

@@ -16,7 +16,7 @@ export default function booksReducer(state = [], action) {
     case `${REMOVE}/fulfilled`:
       return state.filter((book) => book.item_id !== action.meta.arg);
     case `${GET}/fulfilled`:
-      console.log('chewie', action.payload);
+    // console.log('chewie', action.payload);
       return Object.keys(action.payload).map((key) => {
         const { title, author, category } = action.payload[key][0];
         return {
