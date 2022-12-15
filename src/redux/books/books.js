@@ -16,7 +16,6 @@ export default function booksReducer(state = [], action) {
     case `${REMOVE}/fulfilled`:
       return state.filter((book) => book.item_id !== action.meta.arg);
     case `${GET}/fulfilled`:
-    // console.log('chewie', action.payload);
       return Object.keys(action.payload).map((key) => {
         const { title, author, category } = action.payload[key][0];
         return {
@@ -49,22 +48,20 @@ export const getBooks = createAsyncThunk(GET, async () => {
 });
 
 export const createBook = createAsyncThunk(ADD, async (book) => {
-  const response = await fetch(url, {
+  await fetch(url, {
     method: 'POST',
     body: JSON.stringify(book),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  console.log(response);
 });
 
 export const deleteBook = createAsyncThunk(REMOVE, async (itemId) => {
-  const response = await fetch(`${url}/${itemId}`, {
+  await fetch(`${url}/${itemId}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
     },
   });
-  console.log(response);
 });
