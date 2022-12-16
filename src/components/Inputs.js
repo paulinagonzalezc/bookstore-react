@@ -34,7 +34,7 @@ const Inputs = () => {
           required
         />
         <input
-          className="input title-input"
+          className="input author-input"
           placeholder="Author"
           value={author}
           type="text"
@@ -42,7 +42,7 @@ const Inputs = () => {
           required
         />
         <input
-          className="input title-input"
+          className="input category-input"
           placeholder="Category"
           value={category}
           type="text"
