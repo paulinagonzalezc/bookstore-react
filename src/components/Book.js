@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBook } from '../redux/books/books';
+import Progress from './Progress';
 
 const Book = (props) => {
   const {
@@ -31,6 +32,7 @@ const Book = (props) => {
               <button className="button-outline" type="button">Edit</button>
             </div>
           </div>
+          <Progress />
         </div>
       </div>
     </li>
